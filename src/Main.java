@@ -43,22 +43,27 @@ public class Main {
 
     public static void healing() {
         int medicSkill = 30;
-
-        Random random = new Random();
         int skipMedic = 3;
-        int luckyIndex;
-        do {
-            luckyIndex = random.nextInt(heroesHealth.length);
-        } while (luckyIndex == skipMedic);
 
-        if ((heroesHealth[luckyIndex] < 100) && heroesHealth[luckyIndex] > 0) {
-            heroesHealth[luckyIndex] = heroesHealth[luckyIndex] + medicSkill;
-            System.out.println(heroesAttackType[luckyIndex] + " healing " + heroesHealth[luckyIndex]);
+//        Random random = new Random();
+//        int skipMedic = 3;
+//        int luckyIndex;
+//        do {
+//            luckyIndex = random.nextInt(heroesHealth.length);
+//        } while (luckyIndex == skipMedic);
+
+        for (int i = 0; i < heroesDamage.length; i++) {
+            if (i == skipMedic) {
+                continue;
+            }
+
+            if (heroesHealth[i] < 100 && heroesHealth[i] > 0) {
+                heroesHealth[i] = heroesHealth[i] + medicSkill;
+                System.out.println(heroesAttackType[i] + " healing " + heroesHealth[i]);
+                break;
+            }
         }
-
-
     }
-
 
 
     public static void chooseBossDefence() {
